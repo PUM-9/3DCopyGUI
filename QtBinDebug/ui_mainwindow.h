@@ -9,23 +9,23 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
-#include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QGridLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QMainWindow>
-#include <QtGui/QMenu>
-#include <QtGui/QMenuBar>
-#include <QtGui/QPlainTextEdit>
-#include <QtGui/QProgressBar>
-#include <QtGui/QPushButton>
-#include <QtGui/QStatusBar>
-#include <QtGui/QToolBar>
-#include <QtGui/QWidget>
+#include <QVariant>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QGridLayout>
+#include <QHeaderView>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMainWindow>
+#include <QMenu>
+#include <QMenuBar>
+#include <QPlainTextEdit>
+#include <QProgressBar>
+#include <QPushButton>
+#include <QStatusBar>
+#include <QToolBar>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -143,14 +143,14 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        currentFileLabel->setText(QApplication::translate("MainWindow", "Current File:", 0, QApplication::UnicodeUTF8));
-        scanButton->setText(QApplication::translate("MainWindow", "Scan", 0, QApplication::UnicodeUTF8));
-        meshButton->setText(QApplication::translate("MainWindow", "Mesh", 0, QApplication::UnicodeUTF8));
-        resetButton->setText(QApplication::translate("MainWindow", "Reset Hardware", 0, QApplication::UnicodeUTF8));
-        cancelButton->setText(QApplication::translate("MainWindow", "Cancel Scan", 0, QApplication::UnicodeUTF8));
-        newFileLabel->setText(QApplication::translate("MainWindow", "New File:", 0, QApplication::UnicodeUTF8));
-        menu3D_Cop->setTitle(QApplication::translate("MainWindow", "3D Copy", 0, QApplication::UnicodeUTF8));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        currentFileLabel->setText(QApplication::translate("MainWindow", "Current File:", 0));
+        scanButton->setText(QApplication::translate("MainWindow", "Scan", 0));
+        meshButton->setText(QApplication::translate("MainWindow", "Mesh", 0));
+        resetButton->setText(QApplication::translate("MainWindow", "Reset Hardware", 0));
+        cancelButton->setText(QApplication::translate("MainWindow", "Cancel Scan", 0));
+        newFileLabel->setText(QApplication::translate("MainWindow", "New File:", 0));
+        menu3D_Cop->setTitle(QApplication::translate("MainWindow", "3D Copy", 0));
     } // retranslateUi
 
 };

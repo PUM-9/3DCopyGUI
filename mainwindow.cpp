@@ -17,6 +17,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/*
+ * Handles release of the mesh button in the GUI.
+ */
 void MainWindow::handleMeshButton()
 {
     QString filePath(QFileDialog::getOpenFileName(this,tr("Open File"),"./","PCD Files (*.pcd)"));

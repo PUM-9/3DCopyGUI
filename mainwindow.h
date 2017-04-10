@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QFileDialog>
+#include <pcl/PolygonMesh.h>
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +26,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    // Methods
+    void save_mesh(const pcl::PolygonMesh polygon_mesh);
 };
 
 #endif // MAINWINDOW_H

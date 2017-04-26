@@ -32,15 +32,15 @@ static const uint qt_meta_data_MainWindow[] = {
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x08,
       31,   11,   11,   11, 0x08,
-      50,   11,   11,   11, 0x08,
-      71,   11,   11,   11, 0x08,
+      54,   11,   11,   11, 0x08,
+      75,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0handleMeshButton()\0"
-    "handleScanButton()\0handleCancelButton()\0"
+    "handleRegisterButton()\0handleCancelButton()\0"
     "handleResetButton()\0"
 };
 
@@ -51,7 +51,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
         case 0: _t->handleMeshButton(); break;
-        case 1: _t->handleScanButton(); break;
+        case 1: _t->handleRegisterButton(); break;
         case 2: _t->handleCancelButton(); break;
         case 3: _t->handleResetButton(); break;
         default: ;

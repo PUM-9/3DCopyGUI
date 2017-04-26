@@ -33,7 +33,7 @@ link_directories(${PCL_LIBRARY_DIRS})
 
 add_definitions(${PCL_DEFINITIONS})
 
-set(SOURCE_FILES main.cpp mainwindow.cpp mainwindow.h mainwindow.ui src/Mesh.cpp)
+set(SOURCE_FILES main.cpp mainwindow.cpp mainwindow.h mainwindow.ui src/Mesh.cpp src/Registration.cpp)
 
 add_executable(3DCopyGUI ${SOURCE_FILES})
 

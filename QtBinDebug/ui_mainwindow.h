@@ -21,7 +21,6 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QPlainTextEdit>
-#include <QProgressBar>
 #include <QPushButton>
 #include <QStatusBar>
 #include <QToolBar>
@@ -34,16 +33,16 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QGridLayout *gridLayout_2;
-    QLabel *currentFileLabel;
+    QLabel *maxIterLabel;
     QPlainTextEdit *scanLogEdit;
-    QProgressBar *progressBar;
-    QLineEdit *currentFileLineEdit;
-    QPushButton *scanButton;
+    QLabel *registrationLabel;
+    QLineEdit *maxIterLEdit;
+    QLabel *maxCorrDistLabel;
+    QLineEdit *maxCorrDistLEdit;
+    QPushButton *registerButton;
+    QPushButton *registerValueResetButton;
+    QLabel *meshLabel;
     QPushButton *meshButton;
-    QPushButton *resetButton;
-    QPushButton *cancelButton;
-    QLineEdit *newFileLineEdit;
-    QLabel *newFileLabel;
     QMenuBar *menuBar;
     QMenu *menu3D_Cop;
     QToolBar *mainToolBar;
@@ -60,65 +59,62 @@ public:
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        currentFileLabel = new QLabel(centralWidget);
-        currentFileLabel->setObjectName(QString::fromUtf8("currentFileLabel"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(currentFileLabel->sizePolicy().hasHeightForWidth());
-        currentFileLabel->setSizePolicy(sizePolicy);
+        maxIterLabel = new QLabel(centralWidget);
+        maxIterLabel->setObjectName(QString::fromUtf8("maxIterLabel"));
 
-        gridLayout_2->addWidget(currentFileLabel, 4, 2, 1, 1);
+        gridLayout_2->addWidget(maxIterLabel, 3, 2, 1, 1);
 
         scanLogEdit = new QPlainTextEdit(centralWidget);
         scanLogEdit->setObjectName(QString::fromUtf8("scanLogEdit"));
+        scanLogEdit->setReadOnly(true);
 
-        gridLayout_2->addWidget(scanLogEdit, 0, 0, 7, 1);
+        gridLayout_2->addWidget(scanLogEdit, 1, 0, 7, 1);
 
-        progressBar = new QProgressBar(centralWidget);
-        progressBar->setObjectName(QString::fromUtf8("progressBar"));
-        progressBar->setValue(0);
+        registrationLabel = new QLabel(centralWidget);
+        registrationLabel->setObjectName(QString::fromUtf8("registrationLabel"));
+        registrationLabel->setMaximumSize(QSize(16777215, 25));
+        registrationLabel->setAlignment(Qt::AlignCenter);
 
-        gridLayout_2->addWidget(progressBar, 7, 0, 1, 1);
+        gridLayout_2->addWidget(registrationLabel, 1, 2, 1, 2);
 
-        currentFileLineEdit = new QLineEdit(centralWidget);
-        currentFileLineEdit->setObjectName(QString::fromUtf8("currentFileLineEdit"));
-        currentFileLineEdit->setAutoFillBackground(false);
-        currentFileLineEdit->setReadOnly(true);
+        maxIterLEdit = new QLineEdit(centralWidget);
+        maxIterLEdit->setObjectName(QString::fromUtf8("maxIterLEdit"));
+        maxIterLEdit->setMaximumSize(QSize(150, 16777215));
 
-        gridLayout_2->addWidget(currentFileLineEdit, 5, 2, 1, 2);
+        gridLayout_2->addWidget(maxIterLEdit, 3, 3, 1, 1);
 
-        scanButton = new QPushButton(centralWidget);
-        scanButton->setObjectName(QString::fromUtf8("scanButton"));
+        maxCorrDistLabel = new QLabel(centralWidget);
+        maxCorrDistLabel->setObjectName(QString::fromUtf8("maxCorrDistLabel"));
 
-        gridLayout_2->addWidget(scanButton, 3, 2, 1, 2);
+        gridLayout_2->addWidget(maxCorrDistLabel, 2, 2, 1, 1);
+
+        maxCorrDistLEdit = new QLineEdit(centralWidget);
+        maxCorrDistLEdit->setObjectName(QString::fromUtf8("maxCorrDistLEdit"));
+        maxCorrDistLEdit->setMaximumSize(QSize(150, 16777215));
+
+        gridLayout_2->addWidget(maxCorrDistLEdit, 2, 3, 1, 1);
+
+        registerButton = new QPushButton(centralWidget);
+        registerButton->setObjectName(QString::fromUtf8("registerButton"));
+
+        gridLayout_2->addWidget(registerButton, 4, 2, 1, 1);
+
+        registerValueResetButton = new QPushButton(centralWidget);
+        registerValueResetButton->setObjectName(QString::fromUtf8("registerValueResetButton"));
+
+        gridLayout_2->addWidget(registerValueResetButton, 4, 3, 1, 1);
+
+        meshLabel = new QLabel(centralWidget);
+        meshLabel->setObjectName(QString::fromUtf8("meshLabel"));
+        meshLabel->setMaximumSize(QSize(16777215, 25));
+        meshLabel->setAlignment(Qt::AlignCenter);
+
+        gridLayout_2->addWidget(meshLabel, 5, 2, 1, 2);
 
         meshButton = new QPushButton(centralWidget);
         meshButton->setObjectName(QString::fromUtf8("meshButton"));
 
         gridLayout_2->addWidget(meshButton, 6, 2, 1, 2);
-
-        resetButton = new QPushButton(centralWidget);
-        resetButton->setObjectName(QString::fromUtf8("resetButton"));
-
-        gridLayout_2->addWidget(resetButton, 7, 3, 1, 1);
-
-        cancelButton = new QPushButton(centralWidget);
-        cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
-
-        gridLayout_2->addWidget(cancelButton, 7, 2, 1, 1);
-
-        newFileLineEdit = new QLineEdit(centralWidget);
-        newFileLineEdit->setObjectName(QString::fromUtf8("newFileLineEdit"));
-
-        gridLayout_2->addWidget(newFileLineEdit, 2, 2, 1, 2);
-
-        newFileLabel = new QLabel(centralWidget);
-        newFileLabel->setObjectName(QString::fromUtf8("newFileLabel"));
-        sizePolicy.setHeightForWidth(newFileLabel->sizePolicy().hasHeightForWidth());
-        newFileLabel->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(newFileLabel, 1, 2, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -144,12 +140,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        currentFileLabel->setText(QApplication::translate("MainWindow", "Current File:", 0));
-        scanButton->setText(QApplication::translate("MainWindow", "Scan", 0));
+        maxIterLabel->setText(QApplication::translate("MainWindow", "Max Iterations:", 0));
+        registrationLabel->setText(QApplication::translate("MainWindow", "- Registration  -", 0));
+        maxCorrDistLabel->setText(QApplication::translate("MainWindow", "Max correspondance distance:", 0));
+        registerButton->setText(QApplication::translate("MainWindow", "Register", 0));
+        registerValueResetButton->setText(QApplication::translate("MainWindow", "Reset Values", 0));
+        meshLabel->setText(QApplication::translate("MainWindow", "- Meshing -", 0));
         meshButton->setText(QApplication::translate("MainWindow", "Mesh", 0));
-        resetButton->setText(QApplication::translate("MainWindow", "Reset Hardware", 0));
-        cancelButton->setText(QApplication::translate("MainWindow", "Cancel Scan", 0));
-        newFileLabel->setText(QApplication::translate("MainWindow", "New File:", 0));
         menu3D_Cop->setTitle(QApplication::translate("MainWindow", "3D Copy", 0));
     } // retranslateUi
 

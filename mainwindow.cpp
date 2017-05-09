@@ -3,6 +3,7 @@
 #include "include/Mesh.h"
 #include "include/Registration.h"
 #include <pcl/io/vtk_lib_io.h>
+#include <iostream>
 
 typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
 
@@ -18,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->maxCorrDistLEdit->setText(QString::number(default_max_correspondence_distance));
     ui->maxIterLEdit->setText(QString::number(default_max_iterations));
+    ui->transEpsLEdit->setText(QString::number(default_transformation_epsilon));
 }
 
 MainWindow::~MainWindow()
@@ -48,7 +50,6 @@ void MainWindow::handleMeshButton() {
         std::stringstream ss;
         ss << dir_path.absolutePath().toStdString() << "/" << base_name.toStdString() << ".stl";
         save_mesh(polygon_mesh, ss.str());
-        ui->scanLogEdit->appendPlainText(QString::fromStdString(ss.str()));
     }
 }
 
@@ -66,6 +67,8 @@ void MainWindow::handleRegisterButton()
     // Check if a folder was selected / does not exist
     if(!folder_path.isEmpty() && !folder_path.isNull()) {
 
+        ui->scanLogEdit->appendPlainText("Registering folder: " + folder_path);
+
         get_all_pcd_files(folder_path_p,file_paths);
 
         // Check if we have more than one file to register
@@ -75,7 +78,7 @@ void MainWindow::handleRegisterButton()
 
             registration.set_max_correspondence_distance(ui->maxCorrDistLEdit->text().toDouble());
             registration.set_max_iterations(ui->maxIterLEdit->text().toInt());
-            registration.set_transformation_epsilon(default_transformation_epsilon);
+            registration.set_transformation_epsilon(ui->maxIterLEdit->text().toDouble());
 
             std::vector<PointCloud::Ptr> point_clouds;
 
@@ -97,8 +100,7 @@ void MainWindow::handleRegisterButton()
             std::stringstream ss;
             ss << folder_path_p.string();
             cout << ss.str() << endl;
-            ss << "/tempname" << ".pcd";
-            cout << ss.str() << endl;
+            ss << "/" << ui->newFileNameLEdit->text().toStdString() << ".pcd";
 
             save_point_cloud(point_cloud, ss.str());
 
@@ -113,6 +115,7 @@ void MainWindow::handleRegisterValueResetButton()
 {
     ui->maxCorrDistLEdit->setText(QString::number(default_max_correspondence_distance));
     ui->maxIterLEdit->setText(QString::number(default_max_iterations));
+    ui->transEpsLEdit->setText(QString::number(default_transformation_epsilon));
 }
 
 /**

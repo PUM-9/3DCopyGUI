@@ -35,7 +35,7 @@ private:
     Ui::MainWindow *ui;
     double default_max_correspondence_distance = 15;
     unsigned int default_max_iterations = 100;
-    double default_transformation_epsilon = 1e-7;
+    double default_transformation_epsilon = 0.0000001;
 
     // Methods
     void save_mesh(const pcl::PolygonMesh polygon_mesh, const std::string file_name);

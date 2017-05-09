@@ -15,14 +15,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="3" column="2">
-     <widget class="QLabel" name="maxIterLabel">
-      <property name="text">
-       <string>Max Iterations:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" rowspan="7">
+    <item row="1" column="0" rowspan="12">
      <widget class="QPlainTextEdit" name="scanLogEdit">
       <property name="readOnly">
        <bool>true</bool>
@@ -30,7 +23,7 @@
      </widget>
     </item>
     <item row="1" column="2" colspan="2">
-     <widget class="QLabel" name="registrationLabel">
+     <widget class="QLabel" name="registrationValuesLabel">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -38,55 +31,14 @@
        </size>
       </property>
       <property name="text">
-       <string>- Registration  -</string>
+       <string>- Registration Values  -</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="3" column="3">
-     <widget class="QLineEdit" name="maxIterLEdit">
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>16777215</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QLabel" name="maxCorrDistLabel">
-      <property name="text">
-       <string>Max correspondance distance:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="QLineEdit" name="maxCorrDistLEdit">
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>16777215</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QPushButton" name="registerButton">
-      <property name="text">
-       <string>Register</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="3">
-     <widget class="QPushButton" name="registerValueResetButton">
-      <property name="text">
-       <string>Reset Values</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2" colspan="2">
+    <item row="8" column="2" colspan="2">
      <widget class="QLabel" name="meshLabel">
       <property name="maximumSize">
        <size>
@@ -102,10 +54,108 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="2" colspan="2">
+    <item row="9" column="2" colspan="2">
      <widget class="QPushButton" name="meshButton">
       <property name="text">
        <string>Mesh</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="maxCorrDistLabel">
+      <property name="text">
+       <string>Max correspondence distance:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="transEpsLabel">
+      <property name="text">
+       <string>Transformation epsilon:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLabel" name="maxIterLabel">
+      <property name="text">
+       <string>Max iterations:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QLineEdit" name="transEpsLEdit">
+      <property name="maximumSize">
+       <size>
+        <width>150</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QLineEdit" name="newFileNameLEdit">
+      <property name="maximumSize">
+       <size>
+        <width>150</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QPushButton" name="registerButton">
+      <property name="text">
+       <string>Register</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QLabel" name="newFileNameLabel">
+      <property name="text">
+       <string>New file name:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QLineEdit" name="maxIterLEdit">
+      <property name="maximumSize">
+       <size>
+        <width>150</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLineEdit" name="maxCorrDistLEdit">
+      <property name="maximumSize">
+       <size>
+        <width>150</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="3">
+     <widget class="QPushButton" name="registerValueResetButton">
+      <property name="text">
+       <string>Reset Values</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2" colspan="2">
+     <widget class="QLabel" name="registrationLabel">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>- Registration -</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
